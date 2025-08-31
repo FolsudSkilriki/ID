@@ -1,0 +1,23 @@
+Scripts:
+https://github.com/FolsudSkilriki/ID/tree/main/Web/Scripts
+
+Obfuscate Code:
+https://obfuscator.io/
+
+VS Code:
+https://code.visualstudio.com/download
+
+Git:
+https://git-scm.com/downloads/win
+
+Logins:
+	Github:
+	User: FolsudSkilriki
+	Pass: Gonni1122_
+		2FA (Google):
+		User: folsudskilriki@gmail.com
+		Pass: iFakeIDS1122_
+
+
+
+	
