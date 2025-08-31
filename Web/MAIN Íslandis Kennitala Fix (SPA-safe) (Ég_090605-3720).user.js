@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Ísland.is Kennitala Fix (SPA-safe) (Tristan Sikora | 200907-2050)
+// @name         Ísland.is Kennitala Fix (SPA-safe) (Ég | 090605-3720)
 // @namespace    http://tampermonkey.net/
 // @version      1
 // @description  Works with React routing on island.is and safely replaces Kennitala without breaking layout or styles.
@@ -14,8 +14,8 @@
 // ==/UserScript==
 (function() {
     'use strict';
-    const oldKT = '200907-2050';
-    const newKT = '200904-2050';
+    const oldKT = '090605-3720';
+    const newKT = '090604-3720';
     const oldKTplain = oldKT.replace('-', '');
     const newKTplain = newKT.replace('-', '');
     setInterval(() => {
