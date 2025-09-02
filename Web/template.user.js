@@ -2,7 +2,7 @@
 // @name         Ísland.is Kennitala Fix (SPA-safe) ()
 // @namespace    http://tampermonkey.net/
 // @version      1
-// @description  Works with React routing on island.is and safely replaces Kennitala without breaking layout or styles.
+// @description  Works with React routing on island.is and safely replaces Kennitala without breaking layout or styles
 // @author       You
 // @match        https://island.is/minarsidur/min-gogn/yfirlit
 // @match        https://island.is/minarsidur/min-gogn/yfirlit/*

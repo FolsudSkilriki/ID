@@ -1,4 +1,4 @@
-// ==UserScript==
+    // ==UserScript==
 // @name         Ísland.is Kennitala Fix (SPA-safe) (Ég | 090605-3720)
 // @namespace    http://tampermonkey.net/
 // @version      1
