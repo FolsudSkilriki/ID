@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Ísland.is Kennitala Fix (SPA-safe) (Alex Bjarki Þórisson | 150409-2840)
+// @name         Ísland.is Kennitala Fix (SPA-safe) (Júlía Rán Bjarnadóttir | 061207-2280)
 // @namespace    http://tampermonkey.net/
 // @version      1
-// @description  Works with React routing on island.is and safely replaces Kennitala without breaking layout or styles.
+// @description  Works with React routing on island.is and safely replaces Kennitala without breaking layout or styles
 // @author       You
 // @match        https://island.is/minarsidur/min-gogn/yfirlit
 // @match        https://island.is/minarsidur/min-gogn/yfirlit/*
@@ -12,8 +12,8 @@
 // ==/UserScript==
 (function() {
     'use strict';
-    const oldKT = '150409-2840';
-    const newKT = '150405-2840';
+    const oldKT = '061207-2280';
+    const newKT = '061204-2280';
     const oldKTplain = oldKT.replace('-', '');
     const newKTplain = newKT.replace('-', '');
     setInterval(() => {
