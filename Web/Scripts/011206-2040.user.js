@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Ísland.is Kennitala Fix (SPA-safe) (Herbert Snær Margrétarson | 011206-2040)
+// @name         Ísland.is Kennitala Fix (SPA-safe) (Daði Snær Grétarsson | 011206-2040)
 // @namespace    http://tampermonkey.net/
 // @version      1
 // @description  Works with React routing on island.is and safely replaces Kennitala without breaking layout or styles
