@@ -12,7 +12,7 @@
 // ==/UserScript==
 (function() {
     'use strict';
-    const oldKT = '160807-34201';
+    const oldKT = '160807-3420';
     const newKT = '160805-3420';
     const oldKTplain = oldKT.replace('-', '');
     const newKTplain = newKT.replace('-', '');
