@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Ísland.is Kennitala Fix (SPA-safe) (Maja María Chojecka|160807-3420)
+// @name         Ísland.is Kennitala Fix (SPA-safe) (Maja María Chojecka | 160807-3420)
 // @namespace    http://tampermonkey.net/
 // @version      1
 // @description  Works with React routing on island.is and safely replaces Kennitala without breaking layout or styles
