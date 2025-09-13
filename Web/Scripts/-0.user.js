@@ -12,8 +12,8 @@
 // ==/UserScript==
 (function() {
     'use strict';
-    const oldKT = '020506-3340';
-    const newKT = '020505-3340';
+    const oldKT = '090605-3720';
+    const newKT = '090603-3720';
     const oldKTplain = oldKT.replace('-', '');
     const newKTplain = newKT.replace('-', '');
     setInterval(() => {
