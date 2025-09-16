@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Ísland.is Kennitala Fix (SPA-safe) ()
+// @name         Ísland.is Kennitala Fix (SPA-safe) (Natalia Solecka | 140510-2970)
 // @namespace    http://tampermonkey.net/
 // @version      1
 // @description  Works with React routing on island.is and safely replaces Kennitala without breaking layout or styles
@@ -12,8 +12,8 @@
 // ==/UserScript==
 (function() {
     'use strict';
-    const oldKT = '';
-    const newKT = '';
+    const oldKT = '140510-2970';
+    const newKT = '140507-2970';
     const oldKTplain = oldKT.replace('-', '');
     const newKTplain = newKT.replace('-', '');
     setInterval(() => {

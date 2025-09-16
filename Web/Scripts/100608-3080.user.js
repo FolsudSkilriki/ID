@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Ísland.is Kennitala Fix (SPA-safe) ()
+// @name         Ísland.is Kennitala Fix (SPA-safe) (Tómas Logi Jónsson | 100608-3080)
 // @namespace    http://tampermonkey.net/
 // @version      1
 // @description  Works with React routing on island.is and safely replaces Kennitala without breaking layout or styles
@@ -12,8 +12,8 @@
 // ==/UserScript==
 (function() {
     'use strict';
-    const oldKT = '';
-    const newKT = '';
+    const oldKT = '100608-3080';
+    const newKT = '100605-3080';
     const oldKTplain = oldKT.replace('-', '');
     const newKTplain = newKT.replace('-', '');
     setInterval(() => {

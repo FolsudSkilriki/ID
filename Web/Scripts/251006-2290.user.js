@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Ísland.is Kennitala Fix (SPA-safe) ()
+// @name         Ísland.is Kennitala Fix (SPA-safe) (Brynjar Elí Styrkársson | 251006-2290)
 // @namespace    http://tampermonkey.net/
 // @version      1
 // @description  Works with React routing on island.is and safely replaces Kennitala without breaking layout or styles
@@ -12,8 +12,8 @@
 // ==/UserScript==
 (function() {
     'use strict';
-    const oldKT = '';
-    const newKT = '';
+    const oldKT = '251006-2290';
+    const newKT = '251004-2290';
     const oldKTplain = oldKT.replace('-', '');
     const newKTplain = newKT.replace('-', '');
     setInterval(() => {
