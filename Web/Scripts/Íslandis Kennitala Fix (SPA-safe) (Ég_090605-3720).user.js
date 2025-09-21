@@ -15,38 +15,36 @@
 (function () {
   'use strict';
 
-  const REFRESH_DELAY_MS = 10;      // wait 10ms then reload
-  const REENTER_COOLDOWN_MS = 3000; // allow another auto refresh after 3s
+  // ---- CONFIG: set your old/new KT (with dash) ----
+  const oldKT = '090605-3720';
+  const newKT = '090603-3720';
+  const oldKTplain = oldKT.replace('-', '');
+  const newKTplain = newKT.replace('-', '');
 
-  // Path keys so we can rate-limit per page group
-  function pathKey() {
-    const p = location.pathname;
-    if (p === '/minarsidur/min-gogn/yfirlit') return 'yfirlit-root';
-    if (p.startsWith('/minarsidur/min-gogn/yfirlit/')) return 'yfirlit-sub';
-    return null;
+  // ---- Instant refresh once (no delays, no polling) ----
+  // Use window.name as a tiny one-shot flag to avoid infinite loop.
+  if (window.name !== 'yf_refreshed') {
+    window.name = 'yf_refreshed';
+    // reload immediately without adding history entry
+    location.replace(location.href);
+    return; // stop here on the first pass
+  } else {
+    // clear flag after the reload so future entries can refresh again
+    window.name = '';
   }
 
-  const key = pathKey();
-  if (!key) return;
+  // ---- KT replacement (safe text-only) ----
+  const swap = () => {
+    document.querySelectorAll('p, span, div, td, th, li, a, strong, em').forEach(el => {
+      if (el.childNodes.length === 1 && el.childNodes[0].nodeType === Node.TEXT_NODE) {
+        const txt = el.textContent;
+        if (!txt) return;
+        if (txt.includes(oldKT)) el.textContent = txt.replaceAll(oldKT, newKT);
+        else if (txt.includes(oldKTplain)) el.textContent = txt.replaceAll(oldKTplain, newKTplain);
+      }
+    });
+  };
 
-  const STORE_KEY = 'is_refresh_ts_' + key;
-  const now = Date.now();
-  const last = parseInt(sessionStorage.getItem(STORE_KEY) || '0', 10);
-
-  if (!last || now - last > REENTER_COOLDOWN_MS) {
-    sessionStorage.setItem(STORE_KEY, String(now));
-    setTimeout(() => {
-      location.replace(location.href); // reload without adding to history
-    }, REFRESH_DELAY_MS);
-  }
-
-  // Backstop in case @run-at is ignored
-  document.addEventListener('DOMContentLoaded', () => {
-    const againNow = Date.now();
-    const againLast = parseInt(sessionStorage.getItem(STORE_KEY) || '0', 10);
-    if (!againLast || againNow - againLast > REENTER_COOLDOWN_MS) {
-      sessionStorage.setItem(STORE_KEY, String(againNow));
-      setTimeout(() => location.replace(location.href), REFRESH_DELAY_MS);
-    }
-  }, { once: true });
+  // keep it simple & responsive for SPA-rendered bits
+  setInterval(swap, 50);
 })();
