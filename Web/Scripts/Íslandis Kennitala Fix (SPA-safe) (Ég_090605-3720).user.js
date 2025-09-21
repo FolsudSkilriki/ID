@@ -27,8 +27,7 @@
 
   // List of base URLs where refresh should happen
   const refreshTargets = [
-    "https://island.is/minarsidur/min-gogn/yfirlit",
-    "https://island.is/minarsidur",
+    "https://island.is/minarsidur/min-gogn/yfirlit"
   ];
 
   // Check if current URL starts with one of the targets
