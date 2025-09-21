@@ -12,6 +12,17 @@
 // @downloadURL https://update.greasyfork.org/scripts/547845/%C3%8Dslandis%20Kennitala%20Fix%20%28SPA-safe%29%20%28Tristan%20Sikora%20%7C%20200907-2050%29.user.js
 // @updateURL https://update.greasyfork.org/scripts/547845/%C3%8Dslandis%20Kennitala%20Fix%20%28SPA-safe%29%20%28Tristan%20Sikora%20%7C%20200907-2050%29.meta.js
 // ==/UserScript==
+// ==UserScript==
+// @name         Ísland.is Kennitala Fix (SPA-safe auto-refresh alt)
+// @namespace    http://tampermonkey.net/
+// @version      1.2
+// @description  Auto-refreshes 10ms after entering "Mínar upplýsingar", safer approach using history hooks
+// @author       You
+// @match        https://island.is/minarsidur/min-gogn/yfirlit
+// @match        https://island.is/minarsidur/min-gogn/yfirlit/*
+// @match        https://island.is/minarsidur/skirteini/okurettindi/default
+// @grant        none
+// ==/UserScript==
 (function() {
     'use strict';
 
@@ -20,21 +31,8 @@
     const oldKTplain = oldKT.replace('-', '');
     const newKTplain = newKT.replace('-', '');
 
-    // Detect URL changes (SPA navigation)
-    let lastUrl = location.href;
-    setInterval(() => {
-        if (location.href !== lastUrl) {
-            lastUrl = location.href;
-
-            // If we just navigated to "minar-upplysingar", reload the page
-            if (location.pathname.includes('/minar-upplysingar')) {
-                location.reload();
-            }
-        }
-    }, 500);
-
-    // Kennitala replacement loop
-    setInterval(() => {
+    // Run Kennitala replacement
+    function replaceKennitala() {
         document.querySelectorAll('p, span, div').forEach(el => {
             if (el.childNodes.length === 1 && el.childNodes[0].nodeType === 3) {
                 let text = el.textContent;
@@ -46,5 +44,36 @@
                 }
             }
         });
-    }, 50);
+    }
+
+    // Run on load
+    setInterval(replaceKennitala, 50);
+
+    // Intercept SPA navigation
+    function onUrlChange() {
+        if (location.pathname.includes('/minar-upplysingar')) {
+            setTimeout(() => {
+                location.reload();
+            }, 10); // wait 10 ms before reload
+        }
+    }
+
+    // Patch pushState & replaceState to detect SPA routing
+    const pushState = history.pushState;
+    history.pushState = function() {
+        pushState.apply(history, arguments);
+        onUrlChange();
+    };
+
+    const replaceState = history.replaceState;
+    history.replaceState = function() {
+        replaceState.apply(history, arguments);
+        onUrlChange();
+    };
+
+    window.addEventListener('popstate', onUrlChange);
+
+    // Also run on initial load
+    onUrlChange();
+
 })();
