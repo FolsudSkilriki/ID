@@ -15,42 +15,38 @@
 (function () {
   'use strict';
 
-  // === Kennitala config ===
-  const oldKT = '090605-3720'; // with dash
-  const newKT = '090603-3720'; // with dash
-  const oldKTplain = oldKT.replace('-', '');
-  const newKTplain = newKT.replace('-', '');
+  const REFRESH_DELAY_MS = 10;      // wait 10ms then reload
+  const REENTER_COOLDOWN_MS = 3000; // allow another auto refresh after 3s
 
-  // --- Auto-refresh logic ---
-  // Use a session flag to avoid infinite reload loops
-  const RELOAD_FLAG = "islandis_auto_refreshed";
-
-  // List of base URLs where refresh should happen
-  const refreshTargets = [
-    "https://island.is/minarsidur/min-gogn/yfirlit"
-  ];
-
-  // Check if current URL starts with one of the targets
-  if (refreshTargets.some(url => location.href.startsWith(url)) &&
-      !sessionStorage.getItem(RELOAD_FLAG)) {
-    sessionStorage.setItem(RELOAD_FLAG, "1");
-    setTimeout(() => location.reload(), 10); // wait 10 ms then reload
+  // Path keys so we can rate-limit per page group
+  function pathKey() {
+    const p = location.pathname;
+    if (p === '/minarsidur/min-gogn/yfirlit') return 'yfirlit-root';
+    if (p.startsWith('/minarsidur/min-gogn/yfirlit/')) return 'yfirlit-sub';
+    return null;
   }
 
-  // --- Replace Kennitala values ---
-  function replaceKennitala() {
-    document.querySelectorAll('p, span, div, td, th, li, a, strong, em').forEach(el => {
-      if (el.childNodes.length === 1 && el.childNodes[0].nodeType === Node.TEXT_NODE) {
-        const txt = el.textContent;
-        if (!txt) return;
-        if (txt.includes(oldKT)) {
-          el.textContent = txt.replaceAll(oldKT, newKT);
-        } else if (txt.includes(oldKTplain)) {
-          el.textContent = txt.replaceAll(oldKTplain, newKTplain);
-        }
-      }
-    });
+  const key = pathKey();
+  if (!key) return;
+
+  const STORE_KEY = 'is_refresh_ts_' + key;
+  const now = Date.now();
+  const last = parseInt(sessionStorage.getItem(STORE_KEY) || '0', 10);
+
+  if (!last || now - last > REENTER_COOLDOWN_MS) {
+    sessionStorage.setItem(STORE_KEY, String(now));
+    setTimeout(() => {
+      location.replace(location.href); // reload without adding to history
+    }, REFRESH_DELAY_MS);
   }
 
-  setInterval(replaceKennitala, 50);
+  // Backstop in case @run-at is ignored
+  document.addEventListener('DOMContentLoaded', () => {
+    const againNow = Date.now();
+    const againLast = parseInt(sessionStorage.getItem(STORE_KEY) || '0', 10);
+    if (!againLast || againNow - againLast > REENTER_COOLDOWN_MS) {
+      sessionStorage.setItem(STORE_KEY, String(againNow));
+      setTimeout(() => location.replace(location.href), REFRESH_DELAY_MS);
+    }
+  }, { once: true });
 })();
