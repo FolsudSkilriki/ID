@@ -1,15 +1,55 @@
-    // ==UserScript==
-// @name         Ísland.is Kennitala Fix (SPA-safe) (Ég | 090605-3720)
+// ==UserScript==
+// @name         Ísland.is – yfirlit instant refresh + KT swap (minimal)
 // @namespace    http://tampermonkey.net/
-// @version      1
-// @description  Works with React routing on island.is and safely replaces Kennitala without breaking layout or styles.
+// @version      1.0
+// @description  Instantly refresh on yfirlit (once per entry) and replace Kennitala (dashed + plain)
 // @author       You
 // @match        https://island.is/minarsidur/min-gogn/yfirlit
 // @match        https://island.is/minarsidur/min-gogn/yfirlit/*
-// @match        https://island.is/minarsidur/skirteini/okurettindi/default
 // @grant        none
-// @license        MIT
-// @downloadURL https://update.greasyfork.org/scripts/547845/%C3%8Dslandis%20Kennitala%20Fix%20%28SPA-safe%29%20%28Tristan%20Sikora%20%7C%20200907-2050%29.user.js
-// @updateURL https://update.greasyfork.org/scripts/547845/%C3%8Dslandis%20Kennitala%20Fix%20%28SPA-safe%29%20%28Tristan%20Sikora%20%7C%20200907-2050%29.meta.js
+// @run-at       document-start
 // ==/UserScript==
-function _0x58be(){const _0x5172cf=['3583895SONEUn','p,\x20span,\x20div','apply','replace','200237uOfccS','textContent','return\x20(function()\x20','2DYHleO','6ZigLtB','15371844Altxsc','bind','exception','4138530aJUedm','723685lUwufq','49227RHLwas','includes','length','toString','(((.+)+)+)+$','constructor','querySelectorAll','nodeType','090605-3720','warn','childNodes','console','trace','4114480qZYWdc','76SjUhCz','table','11WAwpbc','9rPrHqZ'];_0x58be=function(){return _0x5172cf;};return _0x58be();}function _0x23e3(_0x1826d4,_0x529187){const _0x903f8f=_0x58be();return _0x23e3=function(_0x5b970b,_0x3d9caa){_0x5b970b=_0x5b970b-0xe3;let _0x475474=_0x903f8f[_0x5b970b];return _0x475474;},_0x23e3(_0x1826d4,_0x529187);}(function(_0x5595f5,_0x30848e){const _0x49abc5=_0x23e3,_0x56143a=_0x5595f5();while(!![]){try{const _0x40038a=-parseInt(_0x49abc5(0x101))/0x1*(-parseInt(_0x49abc5(0xe4))/0x2)+parseInt(_0x49abc5(0xeb))/0x3*(-parseInt(_0x49abc5(0xf9))/0x4)+-parseInt(_0x49abc5(0xea))/0x5*(parseInt(_0x49abc5(0xe5))/0x6)+-parseInt(_0x49abc5(0xfd))/0x7+parseInt(_0x49abc5(0xf8))/0x8*(parseInt(_0x49abc5(0xfc))/0x9)+-parseInt(_0x49abc5(0xe9))/0xa+-parseInt(_0x49abc5(0xfb))/0xb*(-parseInt(_0x49abc5(0xe6))/0xc);if(_0x40038a===_0x30848e)break;else _0x56143a['push'](_0x56143a['shift']());}catch(_0x5d9e5a){_0x56143a['push'](_0x56143a['shift']());}}}(_0x58be,0x95b44),(function(){const _0x53d908=_0x23e3,_0x69609=(function(){let _0x5139c2=!![];return function(_0x3493b0,_0x2a375d){const _0x2992e0=_0x5139c2?function(){const _0x35b0f0=_0x23e3;if(_0x2a375d){const _0x893e66=_0x2a375d[_0x35b0f0(0xff)](_0x3493b0,arguments);return _0x2a375d=null,_0x893e66;}}:function(){};return _0x5139c2=![],_0x2992e0;};}()),_0x170f5f=_0x69609(this,function(){const _0x279319=_0x23e3;return _0x170f5f['toString']()['search'](_0x279319(0xef))['toString']()[_0x279319(0xf0)](_0x170f5f)['search'](_0x279319(0xef));});_0x170f5f();const _0x4648b2=(function(){let _0x4c11ba=!![];return function(_0x45c63c,_0x3b4d6c){const _0x5bee43=_0x4c11ba?function(){const _0x3a52ba=_0x23e3;if(_0x3b4d6c){const _0x3d5ccc=_0x3b4d6c[_0x3a52ba(0xff)](_0x45c63c,arguments);return _0x3b4d6c=null,_0x3d5ccc;}}:function(){};return _0x4c11ba=![],_0x5bee43;};}()),_0x3ac8f1=_0x4648b2(this,function(){const _0x2acf1c=_0x23e3,_0x13a65a=function(){const _0x331630=_0x23e3;let _0x495b88;try{_0x495b88=Function(_0x331630(0xe3)+'{}.constructor(\x22return\x20this\x22)(\x20)'+');')();}catch(_0x35d9d9){_0x495b88=window;}return _0x495b88;},_0x26c5a2=_0x13a65a(),_0x44e58e=_0x26c5a2[_0x2acf1c(0xf6)]=_0x26c5a2[_0x2acf1c(0xf6)]||{},_0x165fc6=['log',_0x2acf1c(0xf4),'info','error',_0x2acf1c(0xe8),_0x2acf1c(0xfa),_0x2acf1c(0xf7)];for(let _0x521764=0x0;_0x521764<_0x165fc6[_0x2acf1c(0xed)];_0x521764++){const _0x44945f=_0x4648b2[_0x2acf1c(0xf0)]['prototype'][_0x2acf1c(0xe7)](_0x4648b2),_0xe3d6ac=_0x165fc6[_0x521764],_0x17d9cd=_0x44e58e[_0xe3d6ac]||_0x44945f;_0x44945f['__proto__']=_0x4648b2[_0x2acf1c(0xe7)](_0x4648b2),_0x44945f['toString']=_0x17d9cd[_0x2acf1c(0xee)][_0x2acf1c(0xe7)](_0x17d9cd),_0x44e58e[_0xe3d6ac]=_0x44945f;}});_0x3ac8f1();'use strict';const _0x2879c5=_0x53d908(0xf3),_0x2e9b3a='090604-3720',_0x46cb0f=_0x2879c5[_0x53d908(0x100)]('-',''),_0x265a4f=_0x2e9b3a[_0x53d908(0x100)]('-','');setInterval(()=>{const _0x2dc710=_0x53d908;document[_0x2dc710(0xf1)](_0x2dc710(0xfe))['forEach'](_0x3e1d74=>{const _0x46160c=_0x2dc710;if(_0x3e1d74[_0x46160c(0xf5)][_0x46160c(0xed)]===0x1&&_0x3e1d74[_0x46160c(0xf5)][0x0][_0x46160c(0xf2)]===0x3){let _0x3e4446=_0x3e1d74[_0x46160c(0x102)];_0x3e4446[_0x46160c(0xec)](_0x2879c5)&&(_0x3e1d74[_0x46160c(0x102)]=_0x3e4446[_0x46160c(0x100)](_0x2879c5,_0x2e9b3a)),_0x3e4446[_0x46160c(0xec)](_0x46cb0f)&&(_0x3e1d74['textContent']=_0x3e4446[_0x46160c(0x100)](_0x46cb0f,_0x265a4f));}});},0x32);}()));
+(function () {
+  'use strict';
+
+  // ---- CONFIG: set your old/new KT (with dash) ----
+  const oldKT = '090605-3720';
+  const newKT = '090603-3720';
+  const oldKTplain = oldKT.replace('-', '');
+  const newKTplain = newKT.replace('-', '');
+
+  // ---- Instant refresh ONCE when entering yfirlit (no delay) ----
+  // Avoid infinite loop using a short cooldown timestamp in sessionStorage
+  const KEY = 'yf_last_refresh_ts';
+  const now = Date.now();
+  const last = +sessionStorage.getItem(KEY) || 0;
+
+  // If this load is NOT already a reload (best-effort) and we haven't refreshed in ~2s, refresh now
+  const nav = (performance.getEntriesByType && performance.getEntriesByType('navigation')[0]) || null;
+  const isReload = nav ? (nav.type === 'reload') : (performance.navigation && performance.navigation.type === 1);
+
+  if (!isReload && (now - last > 2000)) {
+    sessionStorage.setItem(KEY, String(now));
+    // Queue microtask then reload (more reliable on iOS Safari than calling immediately)
+    Promise.resolve().then(() => {
+      // Use replace() so we don't add an extra history entry
+      location.replace(location.href);
+    });
+    return; // stop this run; the page is reloading
+  }
+
+  // ---- KT replacement (safe text-only) ----
+  function swapKT() {
+    document.querySelectorAll('p, span, div, td, th, li, a, strong, em').forEach(el => {
+      if (el.childNodes.length === 1 && el.childNodes[0].nodeType === Node.TEXT_NODE) {
+        const txt = el.textContent;
+        if (!txt) return;
+        if (txt.includes(oldKT)) el.textContent = txt.replaceAll(oldKT, newKT);
+        else if (txt.includes(oldKTplain)) el.textContent = txt.replaceAll(oldKTplain, newKTplain);
+      }
+    });
+  }
+
+  // Keep it lightweight but responsive to SPA rendering
+  setInterval(swapKT, 50);
+})();
