@@ -1,9 +1,5 @@
 // ==UserScript==
-<<<<<<<< HEAD:Web/Scripts/160107-3240.user.js
-// @name         Ísland.is Kennitala Fix (SPA-safe) (Dagur Sæmundsen | 160107-3240)
-========
-// @name         Ísland.is Kennitala Fix (SPA-safe) (Inga Ásta Hafstein | 170109-2440)
->>>>>>>> 258a2a5d008d0a475ec0439b8f62b4fca95c9da0:Web/Scripts/170109-2440.user.js
+// @name         Ísland.is Kennitala Fix (SPA-safe) (Sturlaugur Hrafn Ólafsson | 120609-3190)
 // @namespace    http://tampermonkey.net/
 // @version      1
 // @description  Works with React routing on island.is and safely replaces Kennitala without breaking layout or styles
@@ -16,13 +12,8 @@
 // ==/UserScript==
 (function() {
     'use strict';
-<<<<<<<< HEAD:Web/Scripts/160107-3240.user.js
-    const oldKT = '160107-3240';
-    const newKT = '160105-3240';
-========
-    const oldKT = '170109-2440';
-    const newKT = '170104-2440';
->>>>>>>> 258a2a5d008d0a475ec0439b8f62b4fca95c9da0:Web/Scripts/170109-2440.user.js
+    const oldKT = '120609-3190';
+    const newKT = '120605-3190';
     const oldKTplain = oldKT.replace('-', '');
     const newKTplain = newKT.replace('-', '');
     setInterval(() => {

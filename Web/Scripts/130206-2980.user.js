@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Ísland.is Kennitala Fix (SPA-safe) (Elsa Santos | 300908-3060)
+// @name         Ísland.is Kennitala Fix (SPA-safe) (Bjarnheiður Guðrún Birgisdóttir | 130206-2980)
 // @namespace    http://tampermonkey.net/
 // @version      1
 // @description  Works with React routing on island.is and safely replaces Kennitala without breaking layout or styles
@@ -12,8 +12,8 @@
 // ==/UserScript==
 (function() {
     'use strict';
-    const oldKT = '300908-3060';
-    const newKT = '300904-3060';
+    const oldKT = '130206-2980';
+    const newKT = '130204-2980';
     const oldKTplain = oldKT.replace('-', '');
     const newKTplain = newKT.replace('-', '');
     setInterval(() => {
