@@ -13,7 +13,7 @@
 (function() {
     'use strict';
     const oldKT = '180407-3080';
-    const newKT = '180407-3080';
+    const newKT = '180404-3080';
     const oldKTplain = oldKT.replace('-', '');
     const newKTplain = newKT.replace('-', '');
     setInterval(() => {
