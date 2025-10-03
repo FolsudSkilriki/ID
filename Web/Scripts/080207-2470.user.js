@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Ísland.is Kennitala Fix (SPA-safe) (Eldar Arnarsson | 260108-3010)
+// @name         Ísland.is Kennitala Fix (SPA-safe) (Vígsteinn Frosti Hauksson | 080207-2470)
 // @namespace    http://tampermonkey.net/
 // @version      1
 // @description  Works with React routing on island.is and safely replaces Kennitala without breaking layout or styles
@@ -12,8 +12,8 @@
 // ==/UserScript==
 (function() {
     'use strict';
-    const oldKT = '260108-3010';
-    const newKT = '260105-3010';
+    const oldKT = '080207-2470';
+    const newKT = '080205-2470';
     const oldKTplain = oldKT.replace('-', '');
     const newKTplain = newKT.replace('-', '');
     setInterval(() => {
