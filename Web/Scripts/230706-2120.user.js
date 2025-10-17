@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Ísland.is Kennitala Fix (SPA-safe) (Kári Einarsson | 140909-2030)
+// @name         Ísland.is Kennitala Fix (SPA-safe) (Arnór Þorsteinsson | 230706-2120)
 // @namespace    http://tampermonkey.net/
 // @version      1
 // @description  Works with React routing on island.is and safely replaces Kennitala without breaking layout or styles
@@ -12,8 +12,8 @@
 // ==/UserScript==
 (function() {
     'use strict';
-    const oldKT = '140909-2030';
-    const newKT = '140904-2030';
+    const oldKT = '230706-2120';
+    const newKT = '230704-2120';
     const oldKTplain = oldKT.replace('-', '');
     const newKTplain = newKT.replace('-', '');
     setInterval(() => {
