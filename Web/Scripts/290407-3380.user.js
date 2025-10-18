@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Ísland.is Kennitala Fix (SPA-safe) ( | )
+// @name         Ísland.is Kennitala Fix (SPA-safe) (Mikael Aron Sverrisson | 290407-3380)
 // @namespace    http://tampermonkey.net/
 // @version      1
 // @description  Works with React routing on island.is and safely replaces Kennitala without breaking layout or styles
@@ -13,8 +13,8 @@
 // ==/UserScript==
 (function() {
     'use strict';
-    const oldKT = '';
-    const newKT = '';
+    const oldKT = '290407-3380';
+    const newKT = '290405-3380';
     const oldKTplain = oldKT.replace('-', '');
     const newKTplain = newKT.replace('-', '');
     setInterval(() => {

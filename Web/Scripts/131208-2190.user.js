@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Ísland.is Kennitala Fix (SPA-safe) ( | )
+// @name         Ísland.is Kennitala Fix (SPA-safe) (Dóra Marín Björgvinsdóttir | 131208-2190)
 // @namespace    http://tampermonkey.net/
 // @version      1
 // @description  Works with React routing on island.is and safely replaces Kennitala without breaking layout or styles
@@ -7,14 +7,13 @@
 // @match        https://island.is/minarsidur/min-gogn/yfirlit
 // @match        https://island.is/minarsidur/min-gogn/yfirlit/*
 // @match        https://island.is/minarsidur/skirteini/okurettindi/default
-// @match        https://innskra.island.is/*
 // @grant        none
 // @license        MIT
 // ==/UserScript==
 (function() {
     'use strict';
-    const oldKT = '';
-    const newKT = '';
+    const oldKT = '131208-2190';
+    const newKT = '131204-2190';
     const oldKTplain = oldKT.replace('-', '');
     const newKTplain = newKT.replace('-', '');
     setInterval(() => {
