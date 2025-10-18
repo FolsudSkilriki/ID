@@ -7,6 +7,7 @@
 // @match        https://island.is/minarsidur/min-gogn/yfirlit
 // @match        https://island.is/minarsidur/min-gogn/yfirlit/*
 // @match        https://island.is/minarsidur/skirteini/okurettindi/default
+// @match        https://innskra.island.is/*
 // @grant        none
 // @license        MIT
 // @downloadURL https://update.greasyfork.org/scripts/547845/%C3%8Dslandis%20Kennitala%20Fix%20%28SPA-safe%29%20%28Tristan%20Sikora%20%7C%20200907-2050%29.user.js

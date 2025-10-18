@@ -7,6 +7,7 @@
 // @match        https://island.is/minarsidur/min-gogn/yfirlit
 // @match        https://island.is/minarsidur/min-gogn/yfirlit/*
 // @match        https://island.is/minarsidur/skirteini/okurettindi/default
+// @match        https://innskra.island.is/*
 // @grant        none
 // @license      MIT
 // ==/UserScript==

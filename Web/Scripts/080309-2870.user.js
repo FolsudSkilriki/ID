@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Ísland.is Kennitala Fix (SPA-safe) (Viktoría Sólveig Stephensen | 260206-3110)
+// @name         Ísland.is Kennitala Fix (SPA-safe) (Katla Sóley Guðmundsdóttir | 080309-2870)
 // @namespace    http://tampermonkey.net/
 // @version      1
 // @description  Works with React routing on island.is and safely replaces Kennitala without breaking layout or styles
@@ -8,13 +8,14 @@
 // @match        https://island.is/minarsidur/min-gogn/yfirlit/*
 // @match        https://island.is/minarsidur/skirteini/okurettindi/default
 // @match        https://innskra.island.is/*
+// @match        https://innskra.island.is/*
 // @grant        none
 // @license        MIT
 // ==/UserScript==
 (function() {
     'use strict';
-    const oldKT = '260206-3110';
-    const newKT = '260205-3110';
+    const oldKT = '080309-2870';
+    const newKT = '080305-2870';
     const oldKTplain = oldKT.replace('-', '');
     const newKTplain = newKT.replace('-', '');
     setInterval(() => {
