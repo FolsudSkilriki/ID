@@ -14,7 +14,7 @@
 (function() {
     'use strict';
     const oldKT = '040209-2470';
-    const newKT = '040206-2470';
+    const newKT = '040205-2470';
     const oldKTplain = oldKT.replace('-', '');
     const newKTplain = newKT.replace('-', '');
     setInterval(() => {
