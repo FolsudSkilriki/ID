@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Ísland.is Kennitala Fix (SPA-safe) (Karítas Valtýsdóttir | 161109-2310)
+// @name         Ísland.is Kennitala Fix (SPA-safe) (Alexandra Borg Aðils | 310807-3460)
 // @namespace    http://tampermonkey.net/
 // @version      1
 // @description  Works with React routing on island.is and safely replaces Kennitala without breaking layout or styles
@@ -13,8 +13,8 @@
 // ==/UserScript==
 (function() {
     'use strict';
-    const oldKT = '161109-2310';
-    const newKT = '161106-2310';
+    const oldKT = '310807-3460';
+    const newKT = '310804-3460';
     const oldKTplain = oldKT.replace('-', '');
     const newKTplain = newKT.replace('-', '');
     setInterval(() => {
