@@ -1,27 +1,36 @@
 // ==UserScript==
-// @name         Auto Full Refresh on URL Change (except innskra)
+// @name         Auto Full Refresh on URL Change (skip innskra.island.is)
 // @namespace    http://tampermonkey.net/
-// @version      1.1
-// @description  Reloads the page when the URL changes, unless it includes "innskra" (login pages)
+// @version      1.2
+// @description  Reload on SPA URL changes except on innskra login pages
 // @author       You
 // @match        *://*/*
 // @grant        none
 // ==/UserScript==
 
-(function() {
-    'use strict';
+(function () {
+  'use strict';
 
-    let lastUrl = location.href;
+  let lastUrl = location.href;
 
-    // Check for URL changes every 300ms
-    setInterval(() => {
-        const currentUrl = location.href;
-        if (currentUrl !== lastUrl) {
-            lastUrl = currentUrl;
-            // Only reload if the new URL does NOT contain "innskra"
-            if (!currentUrl.includes('innskra')) {
-                location.reload(true); // full reload
-            }
-        }
-    }, 300);
-})();
+  function isInnskra(u) {
+    try {
+      const url = new URL(u, location.href);
+      const host = url.hostname.toLowerCase();
+      const path = url.pathname.toLowerCase();
+      // Skip if on innskra.island.is OR any path containing 'innskra'
+      return host === 'innskra.island.is' || host.endsWith('.innskra.island.is') || path.includes('innskra');
+    } catch {
+      // Fallback: plain substring check
+      return String(u).toLowerCase().includes('innskra');
+    }
+  }
+
+  // If we are already on innskra, do nothing at all.
+  if (isInnskra(location.href)) return;
+
+  setInterval(() => {
+    const currentUrl = location.href;
+    if (currentUrl !== lastUrl) {
+      lastUrl = currentUrl;
+      // If
