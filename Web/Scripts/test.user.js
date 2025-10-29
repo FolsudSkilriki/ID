@@ -1,35 +1,24 @@
 // ==UserScript==
-// @name         Ísland.is Kennitala Fix (SPA-safe) (Svanur Fannar Ágústsson | 050206-2110)
+// @name         Auto Full Refresh on URL Change
 // @namespace    http://tampermonkey.net/
-// @version      1
-// @description  Works with React routing on island.is and safely replaces Kennitala without breaking layout or styles
+// @version      1.0
+// @description  Fully reloads the page whenever the URL changes (for SPAs like island.is)
 // @author       You
-// @match        https://island.is/minarsidur/min-gogn/yfirlit
-// @match        https://island.is/minarsidur/min-gogn/yfirlit/*
-// @match        https://island.is/minarsidur/skirteini/okurettindi/default
-// @match        https://innskra.island.is/*
+// @match        *://*/*
 // @grant        none
-// @license        MIT
 // ==/UserScript==
+
 (function() {
     'use strict';
-    const oldKT = '050206-2110';
-    const newKT = '050204-2110';
-    const oldKTplain = oldKT.replace('-', '');
-    const newKTplain = newKT.replace('-', '');
+
+    let lastUrl = location.href;
+
+    // Watch for URL changes every 300ms
     setInterval(() => {
-        document.querySelectorAll('p, span, div').forEach(el => {
-            if (el.childNodes.length === 1 && el.childNodes[0].nodeType === 3) {
-                let text = el.textContent;
-
-                if (text.includes(oldKT)) {
-                    el.textContent = text.replace(oldKT, newKT);
-                }
-
-                if (text.includes(oldKTplain)) {
-                    el.textContent = text.replace(oldKTplain, newKTplain);
-                }
-            }
-        });
+        if (location.href !== lastUrl) {
+            lastUrl = location.href;
+            // Force full page reload
+            location.reload(true);
+        }
     }, 50);
 })();
