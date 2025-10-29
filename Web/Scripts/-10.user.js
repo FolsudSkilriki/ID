@@ -1,35 +1,43 @@
 // ==UserScript==
-// @name         Ísland.is Kennitala Fix (SPA-safe) ()
+// @name         Auto Full Refresh on URL Change (skip innskra.island.is)
 // @namespace    http://tampermonkey.net/
-// @version      1
-// @description  Works with React routing on island.is and safely replaces Kennitala without breaking layout or styles
+// @version      1.2
+// @description  Reload on SPA URL changes except on innskra login pages
 // @author       You
-// @match        https://island.is/minarsidur/min-gogn/yfirlit
-// @match        https://island.is/minarsidur/min-gogn/yfirlit/*
-// @match        https://island.is/minarsidur/skirteini/okurettindi/default
-// @match        https://innskra.island.is/*
+// @match        *://*/*
 // @grant        none
-// @license        MIT
 // ==/UserScript==
-(function() {
-    'use strict';
-    const oldKT = '';
-    const newKT = '';
-    const oldKTplain = oldKT.replace('-', '');
-    const newKTplain = newKT.replace('-', '');
-    setInterval(() => {
-        document.querySelectorAll('p, span, div').forEach(el => {
-            if (el.childNodes.length === 1 && el.childNodes[0].nodeType === 3) {
-                let text = el.textContent;
 
-                if (text.includes(oldKT)) {
-                    el.textContent = text.replace(oldKT, newKT);
-                }
+(function () {
+  'use strict';
 
-                if (text.includes(oldKTplain)) {
-                    el.textContent = text.replace(oldKTplain, newKTplain);
-                }
-            }
-        });
-    }, 50);
+  let lastUrl = location.href;
+
+  function isInnskra(u) {
+    try {
+      const url = new URL(u, location.href);
+      const host = url.hostname.toLowerCase();
+      const path = url.pathname.toLowerCase();
+      // Skip if on innskra.island.is OR any path containing 'innskra'
+      return host === 'innskra.island.is' || host.endsWith('.innskra.island.is') || path.includes('innskra');
+    } catch {
+      // Fallback: plain substring check
+      return String(u).toLowerCase().includes('innskra');
+    }
+  }
+
+  // If we are already on innskra, do nothing at all.
+  if (isInnskra(location.href)) return;
+
+  setInterval(() => {
+    const currentUrl = location.href;
+    if (currentUrl !== lastUrl) {
+      lastUrl = currentUrl;
+      // If the NEW URL is an innskra login, do not reload.
+      if (!isInnskra(currentUrl)) {
+        // Full reload (use replace to avoid stacking history entries)
+        location.replace(currentUrl);
+      }
+    }
+  }, 300);
 })();
