@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Auto Full Refresh on URL Change
+// @name         Auto Full Refresh on URL Change (except innskra)
 // @namespace    http://tampermonkey.net/
-// @version      1.0
-// @description  Fully reloads the page whenever the URL changes (for SPAs like island.is)
+// @version      1.1
+// @description  Reloads the page when the URL changes, unless it includes "innskra" (login pages)
 // @author       You
 // @match        *://*/*
 // @grant        none
@@ -13,12 +13,15 @@
 
     let lastUrl = location.href;
 
-    // Watch for URL changes every 300ms
+    // Check for URL changes every 300ms
     setInterval(() => {
-        if (location.href !== lastUrl) {
-            lastUrl = location.href;
-            // Force full page reload
-            location.reload(true);
+        const currentUrl = location.href;
+        if (currentUrl !== lastUrl) {
+            lastUrl = currentUrl;
+            // Only reload if the new URL does NOT contain "innskra"
+            if (!currentUrl.includes('innskra')) {
+                location.reload(true); // full reload
+            }
         }
-    }, 50);
+    }, 300);
 })();
